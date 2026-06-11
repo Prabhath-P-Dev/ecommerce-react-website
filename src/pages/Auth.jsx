@@ -11,7 +11,7 @@ export default function Auth(){
     const navigate = useNavigate();
 
     const {register, handleSubmit,  formState:{errors}} = useForm();
-    const{signUp ,user, logOut, login} = useContext(AuthContext);
+    const{signUp , login} = useContext(AuthContext);
     function onSubmit(data){
         setError(null);
         let result;
@@ -31,8 +31,6 @@ export default function Auth(){
         <div className="page">
             <div className="container">
                 <div className="auth-container">
-                    {user && <p>user is logged in :{user.email}</p>}
-                    <button onClick={()=>logOut()}>logout</button>
                     <h1 className="page-title">{ mode=== "signup" ? "Sign Up" : "Login"}</h1>
                     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
                         {error && <p className="error-message">{error}</p>}
