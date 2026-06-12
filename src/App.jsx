@@ -6,10 +6,12 @@ import './App.css'
 import Navbar from './components/Navbar'
 import AuthProvider from './contexts/AuthContext'
 import ProductDetails from './pages/ProductDetails'
+import CartProvider from './contexts/CartContext'
 
 function App() {
     return(
       <AuthProvider>
+        <CartProvider>
         <div className="app">
             <Navbar />
           <Routes>
@@ -19,7 +21,7 @@ function App() {
             <Route path="/products/:id" element={<ProductDetails />} />
           </Routes>
         </div>
-      
+      </CartProvider>
       </AuthProvider>
         
         
